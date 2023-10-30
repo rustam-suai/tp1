@@ -1,7 +1,0 @@
-﻿  Base.cpp
-  Fish.cpp
-  Keeper.cpp
-C:\Users\MegaUser\source\repos\TP1k3\TP1k3\Keeper.cpp(18,29): warning C4018: <: несоответствие типов со знаком и без знака
-  main.cpp
-  Создание кода...
-  TP1k3.vcxproj -> C:\Users\MegaUser\source\repos\TP1k3\Debug\TP1k3.exe

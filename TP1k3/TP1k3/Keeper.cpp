@@ -2,6 +2,7 @@
 #include "Keeper.h"
 #include <fstream>
 #include "Fish.h"
+#include "Cat.h"
 Keeper::Keeper() {
     cout << "Keeper constructor called" << endl;
 }
