@@ -1,0 +1,7 @@
+6
+Cat 1 1 1 1 1
+Bird 2 2 2
+Fish 3 3 3
+Fish 4 4 4
+Cat 5 5 5 5 5
+Bird 6 6 6

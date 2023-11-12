@@ -1,17 +1,17 @@
 #pragma once
 #include "Base.h"
-#include <fstream>
 #include <iostream>
-class Fish : public Animal {
+using namespace std;
+class Bird : public Animal {
 private:
     string genus;
     string color;
-    string food;
+    string place;
 
 public:
-    ~Fish();
-    Fish();
-    Fish(Fish& fish);
+    ~Bird();
+    Bird();
+    Bird(Bird& bird);
     void printDetails();
     void setData();
     void fileSetData(ifstream& in);

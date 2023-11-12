@@ -1,57 +1,42 @@
-// Cat.cpp
 #include "Cat.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
 
-Cat::Cat() {
-    cout << "Cat constructor called" << endl;
+Cat::Cat() { genus = ""; color = ""; food = ""; master = ""; nickname = ""; cout << "Constructor CAT\n"; };
+
+Cat::Cat(Cat& cat) {
+    genus = cat.genus; color = cat.color; food = cat.food; master = cat.master; nickname = cat.nickname; cout << "COPY Constructor CAT\n";
+};
+
+Cat::~Cat() { cout << "Destructor CAT\n"; };
+
+void Cat::printDetails() {
+    cout << "Cat - " << genus << ", color: " << color << ", food: "
+        << food << ", master: " << master << ", nickname: " << nickname << endl;
 }
 
-Cat::Cat(const string& genus, const string& color, const string& masterName, const string& name)
-    : Base(genus, color), masterName(masterName), name(name) {
-    cout << "Cat parameterized constructor called" << endl;
+void Cat::setData() {
+    cout << "Порода: "; cin >> genus; cout << "\n";
+    system("cls");
+    cout << "Цвет: "; cin >> color; cout << "\n";
+    system("cls");
+    cout << "Пища: "; cin >> food; cout << "\n";
+    system("cls");
+    cout << "Хозяин: "; cin >> master; cout << "\n";
+    system("cls");
+    cout << "Кличка: "; cin >> nickname; cout << "\n";
+    system("cls");
 }
 
-Cat::~Cat() {
-    cout << "Cat destructor called" << endl;
+void Cat::fileSetData(ifstream& in) {
+    in >> genus;
+    in >> color;
+    in >> food;
+    in >> master;
+    in >> nickname;
 }
-
-void Cat::ShowInfo() const {
-    cout << "\nCat Info:" << endl;
-    Base::ShowInfo();
-    cout << "Master Name: " << masterName << endl;
-    cout << "Name: " << name << "\n" << endl;
-}
-
-string Cat::GetMasterName() const {
-    return masterName;
-}
-
-void Cat::SetMasterName(const string& masterName) {
-    this->masterName = masterName;
-}
-
-string Cat::GetName() const {
-    return name;
-}
-
-void Cat::SetName(const string& name) {
-    this->name = name;
-}
-
-void Cat::SaveToFile(ofstream& file) const {
-    file << "Cat ";
-    Base::SaveToFile(file); // Сначала сохраняем атрибуты из базового класса
-    file << GetMasterName() << " " << GetName() << endl;
-}
-
-void Cat::LoadFromFile(ifstream& file) {
-    if (file.is_open()) {
-        string name, masterName, genus, color;
-
-        file >> genus >> color >> masterName >> name;
-
-        SetGenus(genus);
-        SetColor(color);
-        SetMasterName(masterName);
-        SetName(name);
-    }
+void Cat::fileDisplay(ofstream& out) {
+    out << "Cat - " << genus << ", color: " << color << ", food: "
+        << food << ", master: " << master << ", nickname: " << nickname << endl;
 }

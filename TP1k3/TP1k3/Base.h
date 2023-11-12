@@ -1,25 +1,13 @@
 #pragma once
-#include <string>
+#include <iostream>
 #include <fstream>
 using namespace std;
-
-class Base {
+class Animal {
 public:
-    Base(const string& genus = "", const string& color = "");
-    virtual ~Base();
-
-    virtual void ShowInfo() const;
-
-    virtual void SaveToFile(ofstream& file) const;
-    virtual void LoadFromFile(ifstream& file);
-
-    string GetGenus() const;
-    void SetGenus(const string& genus);
-
-    string GetColor() const;
-    void SetColor(const string& color);
-
-private:
-    string genus;
-    string color;
+    Animal() { cout << "Constructor ANIMAL\n"; };
+    virtual ~Animal() { cout << "Destructor ANIMAL\n"; };
+    virtual void printDetails() = 0;
+    virtual void setData() = 0;
+    virtual void fileDisplay(ofstream& out) = 0;
+    virtual void fileSetData(ifstream& in) = 0;
 };
